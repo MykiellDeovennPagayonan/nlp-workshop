@@ -1,5 +1,6 @@
 "use client";
 
+import BackButton from "@/components/backbutton";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 
@@ -34,6 +35,7 @@ export default function PictureSearchPage() {
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className="flex flex-col min-h-screen items-center justify-center bg-gray-50 px-4 py-8"
     >
+      <BackButton />
       <h1 className="text-4xl font-extrabold mb-6 text-gray-800">Search</h1>
       <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-2xl h-[500px] overflow-hidden relative">
         <div className="flex items-center gap-4 mb-6">
