@@ -4,7 +4,7 @@ Make sure to carefully follow the steps below in order!
 
 ## Setting up the Python Virtual Environment
 
-1. **Create a virtual environment**:
+1. **Create a virtual environment**: <br />
 	Run the following command to create a Python virtual environment:
 
 	```bash
@@ -21,7 +21,7 @@ Make sure to carefully follow the steps below in order!
 	source .venv/bin/activate
 	 ```
 
-3. **Install Python dependencies**:
+3. **Install Python dependencies**: <br />
 	Use pip to install the required dependencies:
 	```bash
 	pip install -r requirements.txt
@@ -41,7 +41,7 @@ Make sure to carefully follow the steps below in order!
 
 ## Running the Application
 
-1. **Run the server**:
+1. **Run the server**: <br />
 	Run the following command to run the python server:
 
 	```bash
@@ -49,7 +49,7 @@ Make sure to carefully follow the steps below in order!
 	python server.py
 	```
 
-2. **Run the client**:
+2. **Run the client**: <br />
 	Open a new terminal and run the following command to run the NextJS frontend:
 	```bash
 	cd client
