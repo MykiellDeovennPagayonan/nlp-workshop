@@ -30,8 +30,6 @@ Make sure to carefully follow the steps below in order!
 ## Setting up the NextJS Frontend
 
 1. **Change directory to client**:
-	Run the following command to change directory:
-
 	```bash
 	cd client
 	```
