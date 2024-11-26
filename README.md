@@ -23,9 +23,9 @@ Make sure to carefully follow the steps below in order!
 
 3. **Install Python dependencies**:
 	Use pip to install the required dependencies:
- ```bash
-pip install -r requirements.txt
- ```
+	```bash
+	pip install -r requirements.txt
+	```
 
 ## Setting up the NextJS Frontend
 
