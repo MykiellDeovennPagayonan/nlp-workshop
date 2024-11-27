@@ -27,7 +27,7 @@ export default function Home() {
       }}
     >
       <h1 className="text-4xl font-extrabold mb-12 text-center drop-shadow-lg">
-        Natural Language Processing Workshop
+        Natural Language Processing Seminar
       </h1>
       <div className="flex flex-col gap-8 items-center max-w-4xl w-full">
         <p className="text-lg text-center font-medium mb-6">
@@ -41,9 +41,20 @@ export default function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             className="text-lg font-semibold px-8 py-4 rounded-lg shadow-lg bg-white text-gray-800 hover:shadow-2xl hover:bg-gray-100 hover:text-black"
-            onClick={() => handleNavigation("/text-classification")}
+            onClick={() => handleNavigation("/spam-detector")}
           >
-            Text Classification
+            Spam Detector
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="text-lg font-semibold px-8 py-4 rounded-lg shadow-lg bg-white text-gray-800 hover:shadow-2xl hover:bg-gray-100 hover:text-black"
+            onClick={() => handleNavigation("/sentiment-analysis")}
+          >
+            Sentiment Analysis
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1, rotate: -2 }}

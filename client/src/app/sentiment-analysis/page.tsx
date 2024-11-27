@@ -2,22 +2,31 @@
 
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import BackButton from "@/components/backbutton";
+
+import fetchSentimentAnalysis from "@/utils/fetchSentimentAnalysis";
 
 export default function TextClassificationPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
+  const [sentiment, setSentiment] = useState<string | null>(null);
 
   const handleSubmit = async () => {
     if (!text.trim()) return;
 
     setLoading(true);
+    setSentiment(null);
 
-    setTimeout(() => {
-      console.log("Text submitted:", text);
+    try {
+      const emotion = await fetchSentimentAnalysis(text);
+      setSentiment(emotion);
+    } catch (error) {
+      console.error("Error fetching sentiment analysis:", error);
+      setSentiment("Error analyzing sentiment. Please try again.");
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -28,9 +37,12 @@ export default function TextClassificationPage() {
       className="flex flex-col min-h-screen items-center justify-center bg-gray-100 px-4 py-8"
     >
       <BackButton />
-      <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Text Classification</h1>
+      <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Sentiment Analysis</h1>
       <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-3xl">
-        <label htmlFor="text-input" className="block text-lg font-medium mb-4 text-gray-600">
+        <label
+          htmlFor="text-input"
+          className="block text-lg font-medium mb-4 text-gray-600"
+        >
           Enter your text below:
         </label>
         <Textarea
@@ -45,14 +57,21 @@ export default function TextClassificationPage() {
           whileTap={{ scale: 0.98 }}
           onClick={handleSubmit}
           disabled={loading}
-          className={`mt-6 w-full py-3 text-lg font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
+          className={`mt-6 w-full py-3 text-lg font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 ${
+            loading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+          }`}
         >
-          {loading ? (
-            "Submitting..."
-          ) : (
-            "Submit"
-          )}
+          {loading ? "Submitting..." : "Submit"}
         </motion.button>
+        
+        {sentiment && (
+          <div className="mt-6 text-lg font-medium text-gray-800">
+            <h2 className="mb-2">Sentiment Result:</h2>
+            <p className="text-gray-700">{sentiment}</p>
+          </div>
+        )}
       </div>
     </motion.main>
   );
