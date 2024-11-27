@@ -37,7 +37,7 @@ export default function TextClassificationPage() {
       className="flex flex-col min-h-screen items-center justify-center bg-gray-100 px-4 py-8"
     >
       <BackButton />
-      <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Text Classification</h1>
+      <h1 className="text-4xl font-extrabold mb-8 text-gray-800">Spam Detector</h1>
       <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-3xl">
         <label htmlFor="text-input" className="block text-lg font-medium mb-4 text-gray-600">
           Enter your text below:
